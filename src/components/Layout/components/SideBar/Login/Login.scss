@@ -1,25 +1,37 @@
-.register_form {
-    background: url("../../../../../assets/Background/Register.jpg") center center no-repeat;
+.login_form {
+
     width: 100vw;
     height: 90vh;
-    // display: flex;
-    // align-items: center;
-    // justify-self: center;
+    background: url("../../../../../assets/Background/Login.jpg") center center no-repeat;
+    // display: flex;/
+    display: flex;
+    align-items: center;
+    justify-self: center;
     background-size: cover;
-    position: relative;
 
-    /* ==========================================================================
-       #FONT
-       ========================================================================== */
+
+
+
+
+
+
+
+    .forget_pass {
+        font-style: italic;
+        color: rgb(51, 51, 70);
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        // underline: ;
+    }
+
     .font-robo {
         font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
     }
 
-    /* ==========================================================================
-         #GRID
-         ========================================================================== */
 
-    // Config lib 
     .rs-select2.js-select-simple.select--no-search {
         width: 95%;
     }
@@ -48,7 +60,7 @@
         -webkit-justify-content: space-between;
         -moz-box-pack: justify;
         -ms-flex-pack: justify;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .col-2 {
@@ -241,11 +253,8 @@
     .wrapper {
         margin: 0 auto;
         position: absolute;
-        /* right: 40px; */
-        top: 10px;
-        left: 0;
-        /* left: auto; */
-        right: 0;
+        right: 40px;
+        left: auto;
     }
 
     .wrapper--w960 {
@@ -360,7 +369,7 @@
     .input-group {
         position: relative;
         margin-bottom: 32px;
-        min-width: 140px;
+
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -385,13 +394,13 @@
         color: #666;
         font-size: 16px;
         font-weight: 500;
-        width: 47% !important;
+        width: 60% !important;
         border-bottom: 1px solid #e5e5e5;
     }
 
     .confirm-input {
 
-        width: 70% !important;
+        width: 52% !important;
 
         input {
             width: 24px !important;
@@ -552,12 +561,12 @@
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         border-radius: 10px;
-        width: 100%;
+        width: 50vw;
         display: table;
     }
 
     .card-2 .card-heading {
-        background: url("../../../../../assets/Background/Login.jpg") left;
+        // background: url("./images/bg-heading-02.jpg") top left/cover no-repeat;
         width: 29.1%;
         display: table-cell;
     }

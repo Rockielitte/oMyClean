@@ -2,8 +2,11 @@ import { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { publicRoute } from './routes';
 import { DefaultLayout } from './components/Layout';
-
+import { ToastContainer, toast } from "react-toastify";
 function App() {
+
+    toast.clearWaitingQueue({ containerId: "app-notifications" });
+
     return (
         <Router>
             <Routes>
@@ -29,6 +32,17 @@ function App() {
                     );
                 })}
             </Routes>
+            <ToastContainer
+                position="bottom-right"
+                draggable={false}
+                autoClose={3000}
+                limit={1}
+                pauseOnHover={false}
+                closeOnClick={true}
+                newestOnTop={true}
+                containerId="app-notifications"
+            />
+
         </Router>
     );
 }

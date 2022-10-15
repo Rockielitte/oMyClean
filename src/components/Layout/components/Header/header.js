@@ -4,58 +4,47 @@ import style from './Header.module.scss';
 // import FontAwesomeIcon from "@fortawesome/react-fontawesome"
 import { Link } from 'react-router-dom';
 import Register from '../SideBar/Register/Register';
+import Login from '../SideBar/Login/Login';
 const cx = classNames.bind(style);
 class Header extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            toRegister: false,
-        };
+        this.state = {};
     }
-    toRegister = () => {
-        this.setState({
-            toRegister: !this.state.toRegister,
-        });
-    };
+
     render() {
         return (
             <Fragment>
                 <header className={cx('header_wrapper')}>
                     <div className={cx('items_wrapper')}>
-                        <Link to="/">
-                            <div className={cx('logo')}></div>
-                        </Link>
+                        <div className={cx('logo')}></div>
                         <div className={cx('services_wrapper')}>
                             <ul className={cx('service-items')}>
-                                <li className={cx('items')}>
+                                <Link className={cx('items')}>
                                     <a className={cx('items_link')}>Dịch vụ</a>
-                                </li>
-                                <li className={cx('items')}>
+                                </Link>
+                                <Link className={cx('items')}>
                                     <a className={cx('items_link')}>Bảng giá</a>
-                                </li>
-                                <li className={cx('items')}>
+                                </Link>
+                                <Link className={cx('items')}>
                                     <a className={cx('items_link')}>Liên hệ</a>
-                                </li>
+                                </Link>
 
-                                <li onClick={() => this.toRegister()} className={cx('items')}>
+                                <Link to="/register" className={cx('items')}>
                                     <a className={cx('items_link')}>đăng kí</a>
-                                </li>
-                                <li className={cx('items')}>
+                                </Link>
+                                <Link to="/login" className={cx('items')}>
                                     <a className={cx('items_link')}>đăng nhập</a>
-                                </li>
-                                <li className={cx('items')}>
+                                </Link>
+                                <Link className={cx('items')}>
                                     <a className={cx('items_link')}>
                                         <i className="fa-brands fa-facebook"></i>
                                     </a>
-                                </li>
+                                </Link>
                             </ul>
                         </div>
                     </div>
                 </header>
-                {/* <Register
-                    toRegister={this.state.toRegister}
-                    handleToRegister={this.toRegister}
-                /> */}
             </Fragment>
         );
     }

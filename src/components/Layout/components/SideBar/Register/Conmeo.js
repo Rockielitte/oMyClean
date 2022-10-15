@@ -78,6 +78,24 @@ class Conmeo extends Component {
         const { gender } = this.state;
         return (
             <>
+<<<<<<< HEAD
+                <div className="register_form">
+                    <div className="wrapper wrapper--w960">
+                        <div className="card card-2">
+                            <div className="card-body">
+                                <h2 className="title">Registration Info</h2>
+                                <form >
+                                    <div className="input-group">
+
+                                        <input
+                                            onChange={(event) => this.handleOnchangeInput(event, "firstName")}
+                                            value={this.state.firstName}
+                                            className="input--style-2" type="text" placeholder="First Name" name="firstName" />
+                                        <input
+                                            onChange={(event) => this.handleOnchangeInput(event, "lastName")}
+                                            value={this.state.lastName}
+                                            className="input--style-2" type="text" placeholder="Last Name" name="lastName" />
+=======
                 <div className="wrapper wrapper--w960">
                     <div className="card card-2">
                         <div className="card-body">
@@ -111,6 +129,7 @@ class Conmeo extends Component {
                                             />
                                             <i className="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                         </div>
+>>>>>>> main
                                     </div>
                                     <div className="col-2"></div>
                                     <div className="col-2">
