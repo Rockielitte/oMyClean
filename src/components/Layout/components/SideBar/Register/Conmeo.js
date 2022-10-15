@@ -73,6 +73,7 @@ class Conmeo extends Component {
         const { gender } = this.state;
         return (
             <>
+                <div className="register_form">
                     <div className="wrapper wrapper--w960">
                         <div className="card card-2">
                             <div className="card-body">
@@ -168,6 +169,7 @@ class Conmeo extends Component {
                                 </form>
                             </div>
                         </div>
+                    </div>
                 </div>
             </>
         )
