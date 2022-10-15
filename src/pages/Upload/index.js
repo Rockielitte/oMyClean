@@ -1,5 +1,11 @@
+import Form from '~/components/Layout/components/Form';
+
 function Following() {
-    return <div>Following Page</div>;
+    return (
+        <div>
+            <Form />
+        </div>
+    );
 }
 
 export default Following;
