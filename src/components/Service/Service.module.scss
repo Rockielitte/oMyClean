@@ -1,5 +1,6 @@
 .outer-img {
-    background: transparent;
+    background-image: url('../../assets/img/1000_F_128821363_CvenMMSQO7pr9RA1xv0LeUVOc9mdFyCH.jpg');
+    // background: transparent;
     color: #000;
     display: flex;
     justify-content: center;
@@ -12,7 +13,7 @@
 .wave {
     float: left;
     margin: 20px;
-    animation: wave ease-in-out 0.5s infinite alternate;
+    animation: wave ease-in-out 1s infinite alternate;
     transform-origin: center -36px;
 }
 
@@ -95,7 +96,7 @@
             bottom: 0;
             right: 0;
             border: 2px solid #000;
-            transition: transform 0.2s;
+            transition: transform 1s;
         }
 
         &:after {
@@ -107,7 +108,6 @@
         }
 
         &:hover {
-
             &:after,
             &:before {
                 transform: translate(0);
@@ -119,4 +119,5 @@
 .outer-btn {
     display: flex;
     justify-content: center;
+    margin: 24px 0;
 }
