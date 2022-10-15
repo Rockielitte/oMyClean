@@ -1,17 +1,18 @@
 import React from 'react'
-import { withGoogleMap, withScriptjs, GoogleMap } from "react-google-maps"
+import Map from 'react-map-gl';
 
-const Map = () => {
-    return (
-        <div>
-            <GoogleMap
-                defaultZoom={8}
-                defaultCenter={{ lat: -34.397, lng: 150.644 }}
-            >
-            </GoogleMap>
-        </div>
-    );
+function MapComponent() {
+    return <Map
+        mapboxAccessToken={"pk.eyJ1IjoiZGFpbWsiLCJhIjoiY2ttbmt2dzc2MXZ1bjJwcGZsZndoaGdkbiJ9.KzEXKpaGb0yYkV8Npdg65g"}
+        initialViewState={{
+            longitude: -100,
+            latitude: 40,
+            zoom: 3.5
+        }}
+
+        style={{ width: 400, height: 400 }}
+        mapStyle="mapbox://styles/mapbox/streets-v9"
+    />;
 }
 
-export default withScriptjs(withGoogleMap(Map));
-
+export default MapComponent
