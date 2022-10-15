@@ -17,7 +17,9 @@ class Header extends React.Component {
             <Fragment>
                 <header className={cx('header_wrapper')}>
                     <div className={cx('items_wrapper')}>
-                        <div className={cx('logo')}></div>
+                        <Link to="/">
+                            <div className={cx('logo')}></div>
+                        </Link>
                         <div className={cx('services_wrapper')}>
                             <ul className={cx('service-items')}>
                                 <Link className={cx('items')}>

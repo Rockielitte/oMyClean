@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './Form.scss';
 
 const options = [
     {
@@ -15,11 +16,21 @@ const options = [
         label: '2',
     },
 ];
+const dataForm = {};
+dataForm['current'] = {};
+
+dataForm.current['fname'] = '';
+dataForm.current['lname'] = '';
+dataForm.current['time'] = '';
+dataForm.current['date'] = '';
+dataForm.current['service'] = '';
+dataForm.current['address'] = '';
+dataForm.current['email'] = '';
+dataForm.current['phone'] = '';
 
 function Form() {
     const notify = () => toast('Booking successfull!');
     const navigate = useNavigate();
-    const dataForm = useRef({});
     const formRef = useRef();
     const [fname, setFName] = useState('');
     const [lname, setLName] = useState('');
@@ -29,6 +40,7 @@ function Form() {
     const [address, setAddress] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+
     const handleSubmit = (e) => {
         let check = true;
         Object.keys(dataForm.current).forEach((key, index) => {
@@ -36,7 +48,7 @@ function Form() {
                 check = false;
             }
         });
-        // console.log(check, 'hah');
+        console.log(check, 'hah', dataForm.current);
         if (check) {
             e.preventDefault();
             notify();
@@ -53,6 +65,7 @@ function Form() {
     //     e.preventDefault();
     //     console.log(dataForm.current);
     // };
+    console.log(dataForm.current);
     const handleSetInput = (name, value, fnc) => {
         fnc(value);
         dataForm.current[name] = value;
@@ -185,7 +198,7 @@ function Form() {
                             <button className="btn btn--radius btn--green" onClick={handleSubmit} type="submit">
                                 BOOK NOW!
                             </button>
-                            <ToastContainer />
+                            {/* <ToastContainer /> */}
                         </div>
                     </form>
                 </div>
