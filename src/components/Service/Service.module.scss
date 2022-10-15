@@ -1,6 +1,6 @@
 .outer-img {
     background: transparent;
-    color: #ffffff;
+    color: #000;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -63,16 +63,19 @@
     0% {
         transform: rotate(10deg);
     }
+
     100% {
         transform: rotate(-10deg);
     }
 }
+
 .button {
     width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #fafafa;
+
     & {
         padding: 20px 40px;
         background: none;
@@ -82,6 +85,7 @@
         font-weight: bold;
         letter-spacing: 3px;
         cursor: pointer;
+
         &:after,
         &:before {
             content: '';
@@ -93,13 +97,17 @@
             border: 2px solid #000;
             transition: transform 0.2s;
         }
+
         &:after {
             transform: translate(3px, 3px);
         }
+
         &:before {
             transform: translate(-3px, -3px);
         }
+
         &:hover {
+
             &:after,
             &:before {
                 transform: translate(0);
@@ -107,6 +115,7 @@
         }
     }
 }
+
 .outer-btn {
     display: flex;
     justify-content: center;

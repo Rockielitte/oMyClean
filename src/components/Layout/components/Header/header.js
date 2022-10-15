@@ -23,7 +23,7 @@ class Header extends React.Component {
                                     Liên hệ
                                 </a></li>
                                 <li className={cx("items")}><a className={cx("items_link")}>
-                                    <i class="fa-brands fa-facebook"></i>
+                                    <i className="fa-brands fa-facebook"></i>
                                 </a></li>
                             </ul>
                         </div></div>

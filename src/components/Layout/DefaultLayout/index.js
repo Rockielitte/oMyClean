@@ -5,7 +5,6 @@ function DefaultLayout({ children }) {
         <div>
             <Header />
             <div className="container">
-                <SideBar />
                 <div className="content">{children}</div>
             </div>
         </div>
