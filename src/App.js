@@ -5,7 +5,6 @@ import { DefaultLayout } from './components/Layout';
 import { ToastContainer, toast } from "react-toastify";
 function App() {
 
-    toast.clearWaitingQueue({ containerId: "app-notifications" });
 
     return (
         <Router>
@@ -40,7 +39,6 @@ function App() {
                 pauseOnHover={false}
                 closeOnClick={true}
                 newestOnTop={true}
-                containerId="app-notifications"
             />
 
         </Router>

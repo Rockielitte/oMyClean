@@ -53,18 +53,21 @@ function Form() {
                 check = false;
             }
         });
-        console.log(check, 'haha')
+        console.log(check, 'haha');
         if (check) {
             event.preventDefault();
             dataForm.current['token'] = localStorage.getItem('Token');
             setTimeout(() => {
-                axios.post('http://localhost:8080/order/new', dataForm.current).then((res) => {
-                    console.log('oke');
-                    // console.log(dataForm.current);
-                    notify();
-                }).catch((e) => {
-                    console.log(e)
-                })
+                axios
+                    .post('http://localhost:8080/order/new', dataForm.current)
+                    .then((res) => {
+                        console.log('oke');
+                        // console.log(dataForm.current);
+                        notify();
+                    })
+                    .catch((e) => {
+                        console.log(e);
+                    });
             }, 1000);
         } else {
             console.log('nop ko dc');
@@ -95,16 +98,12 @@ function Form() {
             <div className="card card-2">
                 <div className="card-body">
                     <h2 className="title">BOOKING HERE</h2>
-                    <form
-                        onSubmit={() => {
-                            return false;
-                        }}
-                    >
+                    <form onsubmit="return false">
                         <div className="input-group">
                             <input
                                 value={name}
                                 onChange={(e) => {
-                                    handleSetInput('name', e.target.value, setName);
+                                    handleSetInput('fname', e.target.value, setName);
                                 }}
                                 className="input--style-2"
                                 type="text"

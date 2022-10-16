@@ -1,7 +1,7 @@
 .register_form {
-    background: url("../../../../../assets/Background/Register.jpg") center center no-repeat;
+    background: url("../../../../../assets/Background/sea.jpeg") center center no-repeat;
     width: 100vw;
-    height: 90vh;
+    height: 88vh;
     // display: flex;
     // align-items: center;
     // justify-self: center;
@@ -241,6 +241,7 @@
     .wrapper {
         margin: 0 auto;
         position: absolute;
+        min-width: 70vw;
         /* right: 40px; */
         top: 10px;
         left: 0;
@@ -564,8 +565,8 @@
 
     .card-2 .card-body {
         display: table-cell;
-        padding: 80px 90px;
-        padding-bottom: 88px;
+        padding: 56px 90px;
+        padding-bottom: 60px;
     }
 
     @media (max-width: 767px) {

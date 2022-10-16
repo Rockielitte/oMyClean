@@ -32,10 +32,12 @@ class Header extends React.Component {
                                 <Link className={cx('items')}>
                                     <a className={cx('items_link')}>Dịch vụ</a>
                                 </Link>
-                                <Link className={cx('items')}>
+                                <Link
+                                    to="/price_table"
+                                    className={cx('items')}>
                                     <a className={cx('items_link')}>Bảng giá</a>
                                 </Link>
-                                <Link className={cx('items')}>
+                                <Link to="/contact" className={cx('items')}>
                                     <a className={cx('items_link')}>Liên hệ</a>
                                 </Link>
                                 {!this.state.show ? (
