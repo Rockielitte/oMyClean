@@ -47,7 +47,6 @@ const publicRoute = [
     {
         path: '/search',
         component: Search,
-        layout: null,
     },
 ];
 

@@ -1,3 +1,5 @@
+import { getAllData } from '../../../../connectDB/axios.js';
+
 import React, { Component, Fragment } from 'react';
 import classNames from 'classnames/bind';
 import style from './Header.module.scss';
@@ -9,9 +11,14 @@ const cx = classNames.bind(style);
 class Header extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            show: localStorage.getItem('name'),
+        };
     }
-
+    componentDidMount() {
+        // let conmeo = getAllData();
+        // console.log(conmeo);
+    }
     render() {
         return (
             <Fragment>
@@ -31,13 +38,44 @@ class Header extends React.Component {
                                 <Link className={cx('items')}>
                                     <a className={cx('items_link')}>Liên hệ</a>
                                 </Link>
+                                {!this.state.show ? (
+                                    <span>
+                                        <Link to="/register" className={cx('items')}>
+                                            <a className={cx('items_link')}>đăng kí</a>
+                                        </Link>
+                                        <Link to="/login" className={cx('items')}>
+                                            <a className={cx('items_link')}>đăng nhập</a>
+                                        </Link>
+                                    </span>
+                                ) : (
+                                    <span>
+                                        <span
+                                            style={{
+                                                borderRadius: '50%',
+                                                backgroundColor: 'blue',
+                                                padding: '8px',
+                                                color: 'white',
+                                                border: '2px solid #fff',
+                                            }}
+                                        >
+                                            {localStorage.getItem('name')}
+                                        </span>
+                                        <button
+                                            style={{
+                                                paddingLeft: '8px',
+                                                backgroundColor: '#fff',
+                                            }}
+                                            onClick={() => {
+                                                this.setState({ show: false });
+                                                localStorage.removeItem('Token');
+                                                localStorage.removeItem('name');
+                                            }}
+                                        >
+                                            Đăng Xuất
+                                        </button>
+                                    </span>
+                                )}
 
-                                <Link to="/register" className={cx('items')}>
-                                    <a className={cx('items_link')}>đăng kí</a>
-                                </Link>
-                                <Link to="/login" className={cx('items')}>
-                                    <a className={cx('items_link')}>đăng nhập</a>
-                                </Link>
                                 <Link className={cx('items')}>
                                     <a className={cx('items_link')}>
                                         <i className="fa-brands fa-facebook"></i>

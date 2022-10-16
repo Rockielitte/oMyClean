@@ -1,5 +1,10 @@
+import History from '~/components/Layout/components/Activtities';
 function Search() {
-    return <div>Search Page</div>;
+    return (
+        <div>
+            <History></History>
+        </div>
+    );
 }
 
 export default Search;

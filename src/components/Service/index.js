@@ -7,11 +7,14 @@ import img2 from '../../assets/img/furniture-upholstery-manufacture-fabric-renov
 // import img6 from '../../assets/img/be9d110d-a285-499d-9485-19c67d74a992.jpg/';
 import img6 from '../../assets/img/hhdhe.jpg';
 import img4 from '../../assets/img/Steam-cleaner-couch-1024x683 (1).jpeg';
-import React from 'react';
+import React, { useState } from 'react';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
 const cx = classNames.bind(style);
 function Service() {
+    const [show, setShow] = useState(localStorage.getItem('name'));
+    let route = '/login';
+    if (show) route = '/following';
     return (
         <div className={cx('wrapper')}>
             <div className={cx('outer-img')}>
@@ -46,7 +49,8 @@ function Service() {
                 </div>
             </div>
             <div className={cx('outer-btn')}>
-                <Link to="/following">
+                {}
+                <Link to={route}>
                     <div className={cx('button')}>BOOKING NOW</div>
                 </Link>
             </div>

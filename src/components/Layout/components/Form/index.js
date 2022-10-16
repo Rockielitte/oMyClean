@@ -1,25 +1,29 @@
 import DatePickerComponent from '../SideBar/DatePicker/DatePicker';
 import Select from 'react-select';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Form.scss';
-
+import axios from 'axios';
 const options = [
     {
         value: '1',
-        label: '1',
+        label: 'SoFa đơn',
     },
     {
-        value: '2',
-        label: '2',
+        value: '1',
+        label: 'SoFa giường',
+    },
+    {
+        value: '1',
+        label: 'SoFa bằng',
     },
 ];
 const dataForm = {};
 dataForm['current'] = {};
 
-dataForm.current['fname'] = '';
+dataForm.current['name'] = '';
 dataForm.current['lname'] = '';
 dataForm.current['time'] = '';
 dataForm.current['date'] = '';
@@ -27,12 +31,13 @@ dataForm.current['service'] = '';
 dataForm.current['address'] = '';
 dataForm.current['email'] = '';
 dataForm.current['phone'] = '';
+// dataForm.current['token'] = localStorage.getItem('Token');
 
 function Form() {
     const notify = () => toast('Booking successfull!');
     const navigate = useNavigate();
-    const formRef = useRef();
-    const [fname, setFName] = useState('');
+
+    const [name, setName] = useState('');
     const [lname, setLName] = useState('');
     const [time, setTime] = useState('');
     const [date, setDate] = useState('');
@@ -41,31 +46,35 @@ function Form() {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (event) => {
         let check = true;
         Object.keys(dataForm.current).forEach((key, index) => {
             if (!dataForm.current[key]) {
                 check = false;
             }
         });
-        console.log(check, 'hah', dataForm.current);
+        console.log(check, 'haha')
         if (check) {
-            e.preventDefault();
-            notify();
-            console.log(dataForm.current);
+            event.preventDefault();
+            dataForm.current['token'] = localStorage.getItem('Token');
             setTimeout(() => {
-                navigate('/');
-            }, 3000);
+                axios.post('http://localhost:8080/order/new', dataForm.current).then((res) => {
+                    console.log('oke');
+                    // console.log(dataForm.current);
+                    notify();
+                }).catch((e) => {
+                    console.log(e)
+                })
+            }, 1000);
         } else {
-            // e.preventDefault();
-            // alert('Fail');
+            console.log('nop ko dc');
         }
     };
     // const handleSubmit = (e) => {
     //     e.preventDefault();
     //     console.log(dataForm.current);
     // };
-    console.log(dataForm.current);
+    // console.log(dataForm.current);
     const handleSetInput = (name, value, fnc) => {
         fnc(value);
         dataForm.current[name] = value;
@@ -73,11 +82,12 @@ function Form() {
     const handleDate = (value) => {
         setDate(value);
         dataForm.current['date'] = value;
+        console.log(typeof value);
     };
     const handleService = (data) => {
-        let { value } = data;
+        let { value, label } = data;
         setService(data);
-        dataForm.current['service'] = value;
+        dataForm.current['service'] = label;
     };
 
     return (
@@ -85,12 +95,16 @@ function Form() {
             <div className="card card-2">
                 <div className="card-body">
                     <h2 className="title">BOOKING HERE</h2>
-                    <form ref={formRef} onsubmit="return false">
+                    <form
+                        onSubmit={() => {
+                            return false;
+                        }}
+                    >
                         <div className="input-group">
                             <input
-                                value={fname}
+                                value={name}
                                 onChange={(e) => {
-                                    handleSetInput('fname', e.target.value, setFName);
+                                    handleSetInput('name', e.target.value, setName);
                                 }}
                                 className="input--style-2"
                                 type="text"
@@ -195,7 +209,7 @@ function Form() {
                             />
                         </div>
                         <div className="input-group">
-                            <button className="btn btn--radius btn--green" onClick={handleSubmit} type="submit">
+                            <button className="btn btn--radius btn--green" onClick={handleSubmit} type="button">
                                 BOOK NOW!
                             </button>
                             {/* <ToastContainer /> */}

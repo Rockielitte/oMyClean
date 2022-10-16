@@ -1,21 +1,21 @@
-import React, { Component, Fragment } from "react"
-import DatePickerComponent from '../DatePicker/DatePicker'
-import './Register.scss'
+import React, { Component, Fragment } from 'react';
+import DatePickerComponent from '../DatePicker/DatePicker';
+import './Register.scss';
 import Select from 'react-select';
-import { Redirect } from "react-router-dom"
-import { Link } from "react-router-dom";
-
+import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { Signup } from '../../../../../connectDB/axios';
+import { Navigate } from 'react-router-dom';
 const options = [
     { value: 'Male', label: 'Nam' },
     { value: 'Female', label: 'Nữ' },
     { value: 'Other', label: 'Khác' },
 ];
 
-
-
 class Register extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             gender: null,
             password: '',
@@ -24,46 +24,74 @@ class Register extends Component {
             password_again: '',
             phoneNumber: '',
             confirm: false,
-        }
+            direct: null,
+        };
     }
 
     handleChange = (gender) => {
         this.setState({ gender });
     };
     handleOnchangeInput = (event, name) => {
-
         if (name === 'confirm') {
             this.setState({
-                confirm: event.target.checked
-            })
+                confirm: event.target.checked,
+            });
             return;
         }
         if (event && name) {
             this.setState({
-                [name]: event.target.value
-            })
+                [name]: event.target.value,
+            });
         }
-    }
+    };
     handleCheckValid = (e) => {
-        let isCheck = ["gender", "password", "firstName", "lastName",
-            "password_again", "phoneNumber", "confirm"]
-        let isValid = isCheck.find(item => !this.state[item])
+        let isCheck = ['gender', 'password', 'firstName', 'lastName', 'password_again', 'phoneNumber', 'confirm'];
+        let isValid = isCheck.find((item) => !this.state[item]);
         if (isValid) {
-            alert(isValid)
+            alert(isValid);
         }
-        return isValid
-    }
-
+        return isValid;
+    };
 
     handleSubmitForm = async (e) => {
-        e.preventDefault()
-
-        let isValid = !this.handleCheckValid(e)
-
-    }
-
+        e.preventDefault();
+        console.log('hehe');
+        // axios
+        //     .post('http://localhost:8080/user/sign-up', {
+        //         phone: this.state.phoneNumber,
+        //         password: this.state.password,
+        //         name: this.state.lastName,
+        //     })
+        //     .then((res) => {
+        //         console.log(res, 'hha');
+        //         alert('Bạn đã đăng kí thành công');
+        //         setTimeout(() => {
+        //             this.props.history.push('/login');
+        //         }, 2000);
+        //     });
+        let isValid = !this.handleCheckValid(e);
+        if (isValid) {
+            axios
+                .post('http://localhost:8080/user/sign-up', {
+                    phone: this.state.phoneNumber,
+                    password: this.state.password,
+                    name: this.state.firstName,
+                })
+                .then((res) => {
+                    console.log('Success', res.data);
+                    alert(res.data.message);
+                    this.setState({ direct: true });
+                    setTimeout(() => {}, 2000);
+                })
+                .catch((res) => {
+                    console.log('Failed', res.response.data);
+                    alert(res.response.data.message);
+                });
+        }
+    };
     render() {
         const { gender } = this.state;
+
         return (
             <>
                 <div className="register_form">
@@ -72,19 +100,26 @@ class Register extends Component {
                             <div className="card-heading"></div>
                             <div className="card-body">
                                 <h2 className="title">đăng kí tài khoản</h2>
-                                <form >
+                                <form>
                                     <div className="input-group">
-
                                         <input
                                             required
-                                            onChange={(event) => this.handleOnchangeInput(event, "firstName")}
+                                            onChange={(event) => this.handleOnchangeInput(event, 'firstName')}
                                             value={this.state.firstName}
-                                            className="input--style-2" type="text" placeholder="Tên: " name="firstName" />
+                                            className="input--style-2"
+                                            type="text"
+                                            placeholder="Tên: "
+                                            name="firstName"
+                                        />
                                         <input
                                             required
-                                            onChange={(event) => this.handleOnchangeInput(event, "lastName")}
+                                            onChange={(event) => this.handleOnchangeInput(event, 'lastName')}
                                             value={this.state.lastName}
-                                            className="input--style-2" type="text" placeholder="Họ và tên đệm:" name="lastName" />
+                                            className="input--style-2"
+                                            type="text"
+                                            placeholder="Họ và tên đệm:"
+                                            name="lastName"
+                                        />
                                     </div>
                                     <div className="row row-space">
                                         <div className="col-2"></div>
@@ -107,51 +142,64 @@ class Register extends Component {
                                     <div className="input-group">
                                         <input
                                             required
-                                            onChange={(event) => this.handleOnchangeInput(event, "phoneNumber")}
+                                            onChange={(event) => this.handleOnchangeInput(event, 'phoneNumber')}
                                             value={this.state.phoneNumber}
-                                            className="input--style-2" type="text" placeholder="Số điện thoại:" name="phoneNumber" />
+                                            className="input--style-2"
+                                            type="text"
+                                            placeholder="Số điện thoại:"
+                                            name="phoneNumber"
+                                        />
                                     </div>
                                     <div className="input-group">
                                         <input
                                             required
-                                            onChange={(event) => this.handleOnchangeInput(event, "password")}
+                                            onChange={(event) => this.handleOnchangeInput(event, 'password')}
                                             value={this.state.password}
-                                            className="input--style-2" type="text" placeholder="Mật khẩu:" name="password" />
+                                            className="input--style-2"
+                                            type="text"
+                                            placeholder="Mật khẩu:"
+                                            name="password"
+                                        />
                                         <input
                                             required
-                                            onChange={(event) => this.handleOnchangeInput(event, "password_again")}
+                                            onChange={(event) => this.handleOnchangeInput(event, 'password_again')}
                                             value={this.state.password_again}
-                                            className="input--style-2" type="text" placeholder="Nhập lại mật khẩu:" name="password_again" />
+                                            className="input--style-2"
+                                            type="text"
+                                            placeholder="Nhập lại mật khẩu:"
+                                            name="password_again"
+                                        />
                                     </div>
 
                                     <div className="input-group">
-
                                         <button
                                             onClick={(e) => this.handleSubmitForm(e)}
-                                            className="btn btn--radius btn--green" type="submit">Đăng Kí !!!</button>
-
-                                        <span className='confirm-input'>
+                                            className="btn btn--radius btn--green"
+                                            type="submit"
+                                        >
+                                            Đăng Kí !!!
+                                        </button>
+                                        {this.state.direct && <Navigate to="/login" replace={true} />}
+                                        <span className="confirm-input">
                                             <input
-                                                onChange={(event) => this.handleOnchangeInput(event, "confirm")}
-                                                className="input--style-2" type='checkbox' id='confirm' name="confirm" checked={this.state.confirm} />
-                                            <label for="confirm" >Tôi đồng ý với các điều khoản của Oh My Clean</label>
+                                                onChange={(event) => this.handleOnchangeInput(event, 'confirm')}
+                                                className="input--style-2"
+                                                type="checkbox"
+                                                id="confirm"
+                                                name="confirm"
+                                                checked={this.state.confirm}
+                                            />
+                                            <label for="confirm">Tôi đồng ý với các điều khoản của Oh My Clean</label>
                                         </span>
-
-
                                     </div>
-
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </>
-        )
+        );
     }
-
 }
 
-
-
-
-export default Register
+export default Register;
