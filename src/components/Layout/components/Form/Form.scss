@@ -15,6 +15,7 @@
 }
 
 .ant-picker {
+    padding: 6px 2px;
     width: 100%;
 }
 
@@ -35,6 +36,7 @@
     -moz-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    align-items: center;
 }
 
 .col-2 {
@@ -106,8 +108,8 @@ legend {
 /**
    * Remove trailing margins from nested lists.
    */
-li > ol,
-li > ul {
+li>ol,
+li>ul {
     margin-bottom: 0;
 }
 
@@ -230,6 +232,7 @@ h6 {
 
 .wrapper--w960 {
     max-width: 960px;
+    width: 736px;
 }
 
 .wrapper--w680 {
@@ -510,6 +513,8 @@ input {
     text-transform: capitalize;
     font-weight: 700;
     margin-bottom: 37px;
+    text-align: center;
+    color: #454343;
 }
 
 /* ==========================================================================
@@ -542,7 +547,7 @@ input {
 
 .card-2 .card-body {
     display: table-cell;
-    padding: 80px 90px;
+    padding: 40px 90px;
     padding-bottom: 88px;
 }
 

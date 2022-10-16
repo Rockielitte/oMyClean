@@ -7,6 +7,7 @@ import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
 import Login from '~/components/Layout/components/SideBar/Login/Login';
+import PriceTable from '~/components/Layout/components/SideBar/Services/PriceTable';
 import Register from '~/components/Layout/components/SideBar/Register/Register';
 import ForgotPassword from '~/components/Layout/components/SideBar/Login/ForgotPassword';
 //public route
@@ -28,6 +29,10 @@ const publicRoute = [
         path: '/login',
         component: Login,
         layout: HeaderOnly,
+    },
+    {
+        path: '/price_table',
+        component: PriceTable,
     },
     {
         path: '/login/forgot_password',

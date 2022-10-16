@@ -78,8 +78,7 @@ class Conmeo extends Component {
         const { gender } = this.state;
         return (
             <>
-<<<<<<< HEAD
-                <div className="register_form">
+                <div className="booking_form">
                     <div className="wrapper wrapper--w960">
                         <div className="card card-2">
                             <div className="card-body">
@@ -95,41 +94,6 @@ class Conmeo extends Component {
                                             onChange={(event) => this.handleOnchangeInput(event, "lastName")}
                                             value={this.state.lastName}
                                             className="input--style-2" type="text" placeholder="Last Name" name="lastName" />
-=======
-                <div className="wrapper wrapper--w960">
-                    <div className="card card-2">
-                        <div className="card-body">
-                            <h2 className="title">Registration Info</h2>
-                            <form>
-                                <div className="input-group">
-                                    <input
-                                        onChange={(event) => this.handleOnchangeInput(event, 'firstName')}
-                                        value={this.state.firstName}
-                                        className="input--style-2"
-                                        type="text"
-                                        placeholder="First Name"
-                                        name="firstName"
-                                    />
-                                    <input
-                                        onChange={(event) => this.handleOnchangeInput(event, 'lastName')}
-                                        value={this.state.lastName}
-                                        className="input--style-2"
-                                        type="text"
-                                        placeholder="Last Name"
-                                        name="lastName"
-                                    />
-                                </div>
-                                <div className="row row-space">
-                                    <div className="col-2">
-                                        <div className="input-group">
-                                            <DatePickerComponent
-                                                placeholder="Birthday"
-                                                OnchangeDateFromParent={this.OnchangeDateFromParent}
-                                                value={this.state.birthday}
-                                            />
-                                            <i className="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                        </div>
->>>>>>> main
                                     </div>
                                     <div className="col-2"></div>
                                     <div className="col-2">
@@ -145,85 +109,88 @@ class Conmeo extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className="input-group">
-                                    <div className="rs-select2 js-select-simple select--no-search">
-                                        <input
-                                            onChange={(event) => this.handleOnchangeInput(event, 'address')}
-                                            value={this.state.address}
-                                            className="input--email"
-                                            type="text"
-                                            placeholder="Address"
-                                            name="address"
-                                        />
+                                    <div className="input-group">
+                                        <div className="rs-select2 js-select-simple select--no-search">
+                                            <input
+                                                onChange={(event) => this.handleOnchangeInput(event, 'address')}
+                                                value={this.state.address}
+                                                className="input--email"
+                                                type="text"
+                                                placeholder="Address"
+                                                name="address"
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="input-group">
-                                    <div className="rs-select2 js-select-simple select--no-search">
-                                        <input
-                                            onChange={(event) => this.handleOnchangeInput(event, 'email')}
-                                            value={this.state.email}
-                                            className="input--email"
-                                            type="text"
-                                            placeholder="Email"
-                                            name="email"
-                                        />
+                                    <div className="input-group">
+                                        <div className="rs-select2 js-select-simple select--no-search">
+                                            <input
+                                                onChange={(event) => this.handleOnchangeInput(event, 'email')}
+                                                value={this.state.email}
+                                                className="input--email"
+                                                type="text"
+                                                placeholder="Email"
+                                                name="email"
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="input-group">
-                                    <input
-                                        onChange={(event) => this.handleOnchangeInput(event, 'password')}
-                                        value={this.state.password}
-                                        className="input--style-2"
-                                        type="text"
-                                        placeholder="Password"
-                                        name="password"
-                                    />
-                                    <input
-                                        onChange={(event) => this.handleOnchangeInput(event, 'password_again')}
-                                        value={this.state.password_again}
-                                        className="input--style-2"
-                                        type="text"
-                                        placeholder="Confirm password"
-                                        name="password_again"
-                                    />
-                                </div>
-                                <div className="input-group">
-                                    <input
-                                        onChange={(event) => this.handleOnchangeInput(event, 'phoneNumber')}
-                                        value={this.state.phoneNumber}
-                                        className="input--style-2"
-                                        type="text"
-                                        placeholder="Phone number"
-                                        name="phoneNumber"
-                                    />
-                                </div>
-                                <div className="input-group">
-                                    <button
-                                        onClick={(e) => this.handleSubmitForm(e)}
-                                        className="btn btn--radius btn--green"
-                                        type="submit"
-                                    >
-                                        Conmeo now!!
-                                    </button>
-
-                                    <span className="confirm-input">
+                                    <div className="input-group">
                                         <input
-                                            onChange={(event) => this.handleOnchangeInput(event, 'confirm')}
+                                            onChange={(event) => this.handleOnchangeInput(event, 'password')}
+                                            value={this.state.password}
                                             className="input--style-2"
-                                            type="checkbox"
-                                            id="confirm"
-                                            name="confirm"
-                                            checked={this.state.confirm}
+                                            type="text"
+                                            placeholder="Password"
+                                            name="password"
                                         />
-                                        <label for="confirm">I agree with the Mygame terms</label>
-                                    </span>
-                                </div>
-                            </form>
+                                        <input
+                                            onChange={(event) => this.handleOnchangeInput(event, 'password_again')}
+                                            value={this.state.password_again}
+                                            className="input--style-2"
+                                            type="text"
+                                            placeholder="Confirm password"
+                                            name="password_again"
+                                        />
+                                    </div>
+                                    <div className="input-group">
+                                        <input
+                                            onChange={(event) => this.handleOnchangeInput(event, 'phoneNumber')}
+                                            value={this.state.phoneNumber}
+                                            className="input--style-2"
+                                            type="text"
+                                            placeholder="Phone number"
+                                            name="phoneNumber"
+                                        />
+                                    </div>
+                                    <div className="input-group">
+                                        <button
+                                            onClick={(e) => this.handleSubmitForm(e)}
+                                            className="btn btn--radius btn--green"
+                                            type="submit"
+                                        >
+                                            Conmeo now!!
+                                        </button>
+
+                                        <span className="confirm-input">
+                                            <input
+                                                onChange={(event) => this.handleOnchangeInput(event, 'confirm')}
+                                                className="input--style-2"
+                                                type="checkbox"
+                                                id="confirm"
+                                                name="confirm"
+                                                checked={this.state.confirm}
+                                            />
+                                            <label for="confirm">I agree with the Mygame terms</label>
+                                        </span>
+                                    </div>
+                                </form>
+
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
             </>
         );
     }

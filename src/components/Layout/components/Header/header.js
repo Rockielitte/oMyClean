@@ -17,16 +17,21 @@ class Header extends React.Component {
             <Fragment>
                 <header className={cx('header_wrapper')}>
                     <div className={cx('items_wrapper')}>
-                        <div className={cx('logo')}></div>
+                        <Link to="/">
+
+                            <div className={cx('logo')}></div>
+                        </Link>
                         <div className={cx('services_wrapper')}>
                             <ul className={cx('service-items')}>
                                 <Link className={cx('items')}>
                                     <a className={cx('items_link')}>Dịch vụ</a>
                                 </Link>
-                                <Link className={cx('items')}>
+                                <Link
+                                    to="/price_table"
+                                    className={cx('items')}>
                                     <a className={cx('items_link')}>Bảng giá</a>
                                 </Link>
-                                <Link className={cx('items')}>
+                                <Link to="/contact" className={cx('items')}>
                                     <a className={cx('items_link')}>Liên hệ</a>
                                 </Link>
 
